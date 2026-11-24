@@ -1,0 +1,22 @@
+module.exports = {
+  id: 'landlord', label: 'Landlord', icon: 'building-2', home: 'index.html', notifications: 'notifications.html',
+  nav: [
+    { key: 'home', label: 'Portfolio', short: 'Home', icon: 'layout-dashboard', href: 'index.html', tab: true },
+    { key: 'properties', label: 'Properties', icon: 'building-2', href: 'properties.html', tab: true },
+    { key: 'money', label: 'Money', icon: 'wallet', href: 'money.html', tab: true },
+    { key: 'messages', label: 'Messages', icon: 'message-circle', href: 'messages.html', tab: true, count: 4, hot: true },
+    { key: 'listing', label: 'Listings', icon: 'megaphone', href: 'listing.html', group: 'Letting' },
+    { key: 'viewings', label: 'Viewings', icon: 'calendar-days', href: 'viewings.html', count: 6 },
+    { key: 'offers', label: 'Offers', icon: 'hand-coins', href: 'offers.html', count: 2, hot: true },
+    { key: 'contract', label: 'Contracts', icon: 'file-signature', href: 'contract.html', count: 1, hot: true },
+    { key: 'maintenance', label: 'Maintenance', icon: 'wrench', href: 'maintenance.html', group: 'Managing', count: 3 },
+    { key: 'renewals', label: 'Renewals', icon: 'refresh-cw', href: 'renewals.html', count: 1, hot: true },
+    { key: 'arrears', label: 'Arrears', icon: 'circle-alert', href: 'arrears.html', count: 1, hot: true },
+    { key: 'notices', label: 'Legal notices', icon: 'scroll-text', href: 'notices.html' },
+    { key: 'moveout', label: 'Move-outs', icon: 'package', href: 'moveout.html', count: 1 },
+    { key: 'documents', label: 'Documents', icon: 'folder', href: 'documents.html', group: 'Records' },
+    { key: 'compliance', label: 'Compliance', icon: 'shield-check', href: 'compliance.html' },
+    { key: 'services', label: 'Services & fees', icon: 'receipt-text', href: 'services.html' },
+    { key: 'profile', label: 'Profile & payouts', icon: 'circle-user', href: 'profile.html' },
+  ],
+};

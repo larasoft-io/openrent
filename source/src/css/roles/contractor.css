@@ -1,0 +1,6 @@
+/* contractor-only helpers */
+.stars.stars-lg svg{width:24px;height:24px}
+.stars.stars-lg{gap:3px}
+.table.compact th,.table.compact td{padding:10px 8px}
+.table.compact th:first-child,.table.compact td:first-child{padding-left:16px}
+.table.compact th:last-child,.table.compact td:last-child{padding-right:16px}

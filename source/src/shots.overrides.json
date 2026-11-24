@@ -1,0 +1,11 @@
+{
+  "tenant-renewal": { "scroll": 60 },
+  "tenant-repair": { "scroll": 0 },
+  "landlord-contract": { "scrollTo": "[data-tabs]" },
+  "landlord-renewals": { "scroll": 150 },
+  "landlord-arrears": { "scroll": 0 },
+  "landlord-moveout": { "scroll": 430 },
+  "manager-dispute": { "scroll": 330 },
+  "admin-ruleset": { "scroll": 250 },
+  "admin-rulesets": { "scroll": 140 }
+}
