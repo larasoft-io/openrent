@@ -46,8 +46,10 @@ module.exports = {
     ${phone('landlord-home', { cls: 'back l', alt: 'Landlord portfolio dashboard' })}
     ${phone('tenant-renewal', { cls: 'back r', alt: 'Renewal offer checked against the rent index' })}
     ${phone('tenant-home', { eager: true, alt: 'Tenant home dashboard' })}
+    <div class="hero-badges">
     <div class="float-card a"><span class="row-ico ok" style="width:34px;height:34px">${icon('shield-check', 18)}</span><span>Rent increase checked<small>Within the legal cap</small></span></div>
     <div class="float-card b"><span class="row-ico accent" style="width:34px;height:34px">${icon('file-badge', 18)}</span><span>Ejari registered<small>Certificate ready</small></span></div>
+    </div>
   </div>
 </div></section>
 
