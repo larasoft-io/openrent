@@ -5,9 +5,11 @@ const { company } = require('./data');
 
 const NAV = [['search', 'Find a home', 'Verified listings'], ['landlords', 'Landlords', 'Let it yourself, legally'], ['tenants', 'Tenants', 'Rent without commission'], ['contractors', 'Pros', 'Jobs for contractors'], ['pricing', 'Pricing', 'Flat fees, no 5%'], ['legal', 'Rulebook', 'The law, built in']];
 
+/** iOS-style status bar drawn above each screenshot so the camera notch never covers the app header */
+const STATUS = '<div class="phone-status" aria-hidden="true"><span>9:41</span><svg viewBox="0 0 66 12" fill="currentColor"><rect x="0" y="8" width="3" height="4" rx="1"/><rect x="4.5" y="6" width="3" height="6" rx="1"/><rect x="9" y="3.5" width="3" height="8.5" rx="1"/><rect x="13.5" y="1" width="3" height="11" rx="1"/><path d="M30 2.2c2.6 0 5 1 6.8 2.7l-1.4 1.5A7.8 7.8 0 0 0 30 4.2c-2 0-3.9.8-5.4 2.2l-1.4-1.5A9.8 9.8 0 0 1 30 2.2Zm0 3.9c1.6 0 3 .6 4.1 1.6l-1.4 1.5a4 4 0 0 0-5.4 0l-1.4-1.5c1.1-1 2.5-1.6 4.1-1.6Zm0 3.8c.6 0 1.1.2 1.5.6L30 12l-1.5-1.5c.4-.4.9-.6 1.5-.6Z"/><rect x="41.5" y="1.5" width="20" height="9" rx="2.6" fill="none" stroke="currentColor" stroke-opacity=".4"/><rect x="43.5" y="3.5" width="14" height="5" rx="1.3"/><path d="M63.5 4.5v3a1.6 1.6 0 0 0 0-3Z" fill-opacity=".4"/></svg></div>';
 /** Phone frame around a dashboard screenshot */
 function phone(shot, o = {}) {
-  return `<div class="phone ${o.cls || ''}"><div class="phone-screen"><img src="assets/shots/${shot}.webp" alt="${esc(o.alt || 'openrent.me app screen')}" loading="${o.eager ? 'eager' : 'lazy'}" width="390" height="800"></div></div>`;
+  return `<div class="phone ${o.cls || ''}"><div class="phone-screen">${STATUS}<img src="assets/shots/${shot}.webp" alt="${esc(o.alt || 'openrent.me app screen')}" loading="${o.eager ? 'eager' : 'lazy'}" width="390" height="800"></div></div>`;
 }
 function phoneFig(shot, title, sub, cls = '') { return `<figure>${phone(shot, { alt: title, cls })}<figcaption>${title}<span>${sub}</span></figcaption></figure>`; }
 function browser(shot, url, alt) {
