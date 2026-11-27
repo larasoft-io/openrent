@@ -80,7 +80,7 @@ ${stats([
 };
 
 /* ---------- Revenue ---------- */
-const heat = v => { const t = Math.max(0, Math.min(1, (v - 50) / 50)); return `<span class="heat" style="background:rgba(91,75,183,${(0.1 + t * 0.5).toFixed(2)});color:${t > 0.55 ? '#fff' : 'var(--ink)'}">${v}%</span>`; };
+const heat = v => { const t = Math.max(0, Math.min(1, (v - 50) / 50)); return `<span class="heat" style="background:rgba(91,75,183,${(0.1 + t * 0.5).toFixed(2)});color:var(--ink)">${v}%</span>`; };
 const revenue = {
   slug: 'revenue', nav: 'revenue', title: 'Revenue', sub: 'November to date',
   body: () => `

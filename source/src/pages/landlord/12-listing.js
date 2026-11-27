@@ -62,7 +62,7 @@ ${panel('wiz', 'details', `<div class="split">
 ${panel('wiz', 'photos', `<div class="split">
 <div class="stack">
   ${card({ title: 'Photos', headEnd: badge('Pro shoot booked', 'ok', { icon: 'camera' }), body: `
-    <div class="photo-grid">${['living-c', 'bedroom-b', 'kitchen-b', 'bath-a', 'p6'].map(i => `<div class="ph"><img src="${B}assets/img/${i}.svg" alt=""></div>`).join('')}<button type="button" class="ph add" data-toast="Photo library opened (demo)">${icon('image-plus', 22)}</button></div>
+    <div class="photo-grid">${['living-c', 'bedroom-b', 'kitchen-b', 'bath-a', 'p6'].map(i => `<div class="ph"><img src="${B}assets/img/${i}.svg" alt=""></div>`).join('')}<button type="button" class="ph add" aria-label="Add from photo library" data-toast="Photo library opened (demo)">${icon('image-plus', 22)}</button></div>
     <p class="small muted mt-3">These five are your own phone shots. They will be replaced by the professional set after Thursday’s shoot — you approve the final order.</p>` })}
   <div class="card pad between"><div class="inline" style="gap:12px"><span class="row-ico accent">${icon('camera', 20)}</span><div><b class="strong">Professional photos & floor plan</b><div class="small muted">Thu 26 Nov, 10:00 · Jun Reyes will let the photographer in</div></div></div><div class="right nowrap"><b class="num">AED 449</b><div class="micro muted">add-on</div></div></div>
   ${next('rent')}

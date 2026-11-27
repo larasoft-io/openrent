@@ -127,11 +127,11 @@ ${pageHead({ eyebrow: 'Governance', title: 'Audit log', sub: 'Every change to a 
 ${chips(['All', 'Rulesets', 'Prices', 'Access', 'Client money', 'Tenancies', 'Impersonation', 'Integrations'])}
 
 <div class="card">${table({ cols: [{ label: 'Event' }, { label: 'Who' }, { label: 'Role' }, { label: 'Entity' }, { label: 'Before → after' }, { label: '', r: true }], rows: [
-  ev('Today, 09:12', 'System', 'Automation', 'Deposit received into client account', 'DEP-2611-0498', '— → AED 6,750 held'),
   ev('Today, 08:22', 'Layla Haddad', 'Manager', 'Deposit dispute decided', 'Springs 4, Villa 18', 'AED 9,500 held → 1,150 landlord · 8,350 tenant', 'info'),
   ev('Today, 08:14', 'System', 'Automation', 'Integration marked degraded', 'Al Etihad Credit Bureau', 'Operational → Degraded'),
   ev('Mon 23 Nov, 16:18', 'Omar Aziz', 'Support', 'Read-only session opened', 'Tenant account', 'Reason: payment query · 6 min', 'warn'),
   ev('Mon 23 Nov, 11:40', 'Sami Khoury', 'Super Admin', 'Promo code created', 'RENEW2027', '— → free renewal pack', 'violet'),
+  ev('Sun 22 Nov, 20:31', 'System', 'Automation', 'Deposit received into client account', 'DEP-2611-0498', '— → AED 6,750 held'),
   ev('Sun 22 Nov, 09:05', 'Sami Khoury', 'Super Admin', 'Role granted', 'Priya Nair', 'Support Agent → Finance Officer', 'violet'),
   ev('Sat 21 Nov, 19:20', 'Fatima Al Hashimi', 'Landlord', 'Repair approved', 'MR-2291', 'Awaiting approval → approved (limit AED 600)', 'brand'),
   ev('Thu 19 Nov, 15:02', 'Hana Suzuki', 'Compliance', 'Ruleset approval recorded', 'Draft 2027.1', '1 of 3 → 2 of 3', 'brand'),

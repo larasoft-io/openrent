@@ -3,8 +3,8 @@ const ui = require('./ui');
 const { icon, logo, mark, avatar, esc } = ui;
 const { people } = require('./data');
 
-const ROLE_ORDER = ['tenant', 'landlord', 'contractor', 'manager', 'admin', 'rep', 'field', 'compliance'];
-const ROLE_COLORS = { tenant: '#F0653A', landlord: '#0B6B5D', contractor: '#B98A34', manager: '#27619E', admin: '#5B4BB7', rep: '#0E7490', field: '#A2466C', compliance: '#3F5B4A' };
+const ROLE_ORDER = ['applicant', 'tenant', 'landlord', 'contractor', 'manager', 'admin', 'rep', 'field', 'compliance'];
+const ROLE_COLORS = { applicant: '#C2410C', tenant: '#F0653A', landlord: '#0B6B5D', contractor: '#B98A34', manager: '#27619E', admin: '#5B4BB7', rep: '#0E7490', field: '#A2466C', compliance: '#3F5B4A' };
 
 function head(title, base, extraCss = '') {
   return `<!doctype html>
@@ -60,7 +60,8 @@ function appPage(role, page, roles) {
 
   return `${head(`${page.title} · ${role.label} · openrent.me`, base)}
 <body class="app role-${role.id}">
-<aside class="sidenav">
+<a class="skip-link" href="#main">Skip to content</a>
+<aside class="sidenav" aria-label="${role.label} navigation">
   <a href="${role.home || 'index.html'}">${logo('on-dark')}</a>
   <button type="button" class="side-role" data-sheet="sheet-roles">${avatar(person.name, { ring: true })}<span class="grow"><b>${person.name}</b><span>${role.label} · ${person.sub}</span></span>${icon('chevrons-up-down', 16)}</button>
   <nav>${side}</nav>
@@ -71,12 +72,12 @@ function appPage(role, page, roles) {
 </aside>
 <header class="topbar" id="topbar">
   ${left}
-  <div class="topbar-title"><b>${page.title}</b>${page.sub ? `<span>${page.sub}</span>` : ''}</div>
-  <div class="topbar-search">${icon('search', 16)}<span>Search</span><kbd>⌘K</kbd></div>
-  <a class="icon-btn" href="${role.notifications || '#'}" aria-label="Notifications"${role.notifications ? '' : ' data-toast="You are all caught up (demo)"'}>${icon('bell', 21)}<span class="dot"></span></a>
+  <div class="topbar-title">${/<h1[\s>]/.test(page.body) ? `<b>${page.title}</b>` : `<h1 class="topbar-h1">${page.title}</h1>`}${page.sub ? `<span>${page.sub}</span>` : ''}</div>
+  <button type="button" class="topbar-search" data-toast="Search across ${role.label.toLowerCase()} records is not wired up in this mock-up">${icon('search', 16)}<span>Search</span><kbd>⌘K</kbd></button>
+  <a class="icon-btn" href="${role.notifications || '#'}" aria-label="Notifications"${role.notifications ? '' : ' data-toast="You are all caught up (demo)"'}>${icon('bell', 21)}${role.notifications ? '<span class="dot"></span>' : ''}</a>
   <button type="button" class="icon-btn" data-sheet="sheet-roles" aria-label="Account and role">${avatar(person.name, { size: 'sm', ring: true })}</button>
 </header>
-<main class="main"><div class="page${page.narrow ? ' narrow' : ''}">
+<main class="main" id="main" tabindex="-1"><div class="page${page.narrow ? ' narrow' : ''}">
 ${page.body}
 </div></main>
 <nav class="tabbar" aria-label="Primary">${tabbar}</nav>

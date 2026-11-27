@@ -8,14 +8,23 @@
   window.addEventListener('scroll', onScroll, { passive: true }); onScroll();
 
   // Bottom sheets / modals
+  // Focus moves into an open sheet, stays there (Tab wraps), and returns to the opener on close
+  var FOCUSABLE = 'a[href],button:not([disabled]),input:not([disabled]):not([type=hidden]),select:not([disabled]),textarea:not([disabled]),[tabindex]:not([tabindex="-1"])';
+  var opener = null;
   function openSheet(id) {
-    doc.querySelectorAll('.sheet.is-open').forEach(function (s) { s.classList.remove('is-open'); });
     var s = doc.getElementById(id); if (!s) return;
+    var wasOpen = doc.querySelector('.sheet.is-open');
+    doc.querySelectorAll('.sheet.is-open').forEach(function (o) { o.classList.remove('is-open'); });
+    if (!wasOpen) opener = doc.activeElement;
     s.classList.add('is-open'); doc.body.classList.add('sheet-lock');
+    var first = s.querySelector('.sheet-body ' + FOCUSABLE.split(',').join(',.sheet-body ')) || s.querySelector(FOCUSABLE);
+    setTimeout(function () { if (first) first.focus({ preventScroll: true }); }, 60);
   }
   function closeSheets() {
+    var any = doc.querySelector('.sheet.is-open');
     doc.querySelectorAll('.sheet.is-open').forEach(function (s) { s.classList.remove('is-open'); });
     doc.body.classList.remove('sheet-lock');
+    if (any && opener && opener.focus) { opener.focus({ preventScroll: true }); opener = null; }
   }
 
   // Toast
@@ -62,7 +71,47 @@
       });
     }
   });
-  doc.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeSheets(); });
+  doc.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') { closeSheets(); return; }
+    if (e.key !== 'Tab') return;
+    var s = doc.querySelector('.sheet.is-open'); if (!s) return;
+    var f = Array.prototype.filter.call(s.querySelectorAll(FOCUSABLE), function (el) { return el.offsetParent !== null; });
+    if (!f.length) return;
+    var a = f[0], z = f[f.length - 1];
+    if (!s.contains(doc.activeElement)) { e.preventDefault(); a.focus(); }
+    else if (e.shiftKey && doc.activeElement === a) { e.preventDefault(); z.focus(); }
+    else if (!e.shiftKey && doc.activeElement === z) { e.preventDefault(); a.focus(); }
+  });
+
+  // Expose tab and chip state to assistive technology
+  doc.querySelectorAll('[data-tabs]').forEach(function (w) {
+    w.setAttribute('role', 'tablist');
+    w.querySelectorAll('[data-tab]').forEach(function (b) { b.setAttribute('role', 'tab'); b.setAttribute('aria-selected', b.classList.contains('is-active')); });
+  });
+  doc.querySelectorAll('[data-chips] .chip').forEach(function (c) { c.setAttribute('aria-pressed', c.classList.contains('is-active')); });
+  new MutationObserver(function (m) {
+    m.forEach(function (r) {
+      var el = r.target;
+      if (el.hasAttribute('data-tab')) el.setAttribute('aria-selected', el.classList.contains('is-active'));
+      else if (el.classList.contains('chip')) el.setAttribute('aria-pressed', el.classList.contains('is-active'));
+    });
+  }).observe(doc.body, { subtree: true, attributes: true, attributeFilter: ['class'] });
+
+  // Scrollable regions must be reachable by keyboard
+  doc.querySelectorAll('.table-wrap,.hscroll,.lifecycle,pre').forEach(function (el) {
+    if (el.scrollWidth > el.clientWidth + 1 && !el.querySelector(FOCUSABLE)) el.setAttribute('tabindex', '0');
+  });
+
+  // Chart labels: SVG charts scale with their card, so keep their text at a constant on-screen size
+  function fitCharts() {
+    doc.querySelectorAll('svg.chart').forEach(function (svg) {
+      var vb = svg.viewBox && svg.viewBox.baseVal; if (!vb || !vb.width || !svg.clientWidth) return;
+      var k = vb.width / svg.clientWidth;
+      svg.querySelectorAll('text:not([style])').forEach(function (t) { t.style.fontSize = (11 * k).toFixed(2) + 'px'; });
+    });
+  }
+  fitCharts();
+  if (window.ResizeObserver) { var ro = new ResizeObserver(fitCharts); doc.querySelectorAll('svg.chart').forEach(function (c) { ro.observe(c); }); }
 
   // Range sliders paint their filled track and can mirror their value into [data-out="<id>"]
   function paint(r) {

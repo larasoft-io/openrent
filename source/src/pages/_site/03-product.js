@@ -142,7 +142,7 @@ const listing = {
         { state: 'info', title: 'Whole home only — no room sharing or sub-letting', rule: rchip('DXB-S04', 'Shared housing') },
       ] })}</div>
 
-    <div class="stack stack-sm"><h2 class="d3">Where it is</h2><div class="mapbox"><img src="assets/img/map.svg" alt="Map"></div></div>
+    <div class="stack stack-sm"><h2 class="d3">Where it is</h2><div class="mapbox"><img src="assets/img/map-jvc.svg" alt="Map showing Bloom Towers B in Jumeirah Village Circle"></div></div>
   </div>
 
   <aside class="stack sticky-side" style="top:92px">
@@ -163,7 +163,8 @@ const listing = {
        <div class="field"><span class="label">Payment plan</span>${ui.seg('op', [{ id: '12', label: 'Monthly' }, { id: '4', label: '4 cheques' }, { id: '2', label: '2' }, { id: '1', label: '1' }], '12', 'block')}</div>
        ${field({ label: 'Move-in date', type: 'date', value: '2026-12-01' })}
        ${field({ label: 'Who will live there', type: 'select', options: ['Just me', '2 adults', '2 adults + children', 'Other'], value: 'Just me' })}
-       ${callout({ tone: 'brand', icon: 'fingerprint', body: 'Verify once with UAE Pass and your offer shows a “Verified” badge. The landlord sees the result, never your documents.' })}`,
+       ${callout({ tone: 'brand', icon: 'fingerprint', body: 'Verify once with UAE Pass and your offer shows a “Verified” badge. The landlord sees the result, never your documents.' })}
+       <p class="small muted">After you send it you can follow every step, from referencing to keys, in your dashboard. <a class="link" href="app/applicant/index.html">See an example</a></p>`,
       btn('Cancel', { attrs: { 'data-close': true } }) + btn('Send offer', { variant: 'accent', toast: 'Offer sent to the landlord (demo)' })),
   }),
 };
@@ -236,7 +237,7 @@ const signin = {
     <p class="small muted">Landlords and contractors verify with UAE Pass before listing or accepting jobs. By continuing you agree to the terms and privacy notice.</p>
   </div>
   <div class="stack"><span class="eyebrow">Demo shortcut</span><h2 class="d3">Jump straight into a dashboard</h2>
-    <div class="role-list">${['tenant', 'landlord', 'contractor', 'manager', 'admin', 'rep', 'field', 'compliance'].filter(id => roles[id]).map(id => `<a href="app/${id}/index.html">${avatar(data.people[id].name, { size: 'sm' })}<span class="grow"><b class="strong" style="display:block;font-size:14px;line-height:1.2">${roles[id].label}</b><span class="small muted">${data.people[id].name} · ${data.people[id].sub}</span></span>${icon('chevron-right', 18, 'faint')}</a>`).join('')}</div>
+    <div class="role-list">${['applicant', 'tenant', 'landlord', 'contractor', 'manager', 'admin', 'rep', 'field', 'compliance'].filter(id => roles[id]).map(id => `<a href="app/${id}/index.html">${avatar(data.people[id].name, { size: 'sm' })}<span class="grow"><b class="strong" style="display:block;font-size:14px;line-height:1.2">${roles[id].label}</b><span class="small muted">${data.people[id].name} · ${data.people[id].sub}</span></span>${icon('chevron-right', 18, 'faint')}</a>`).join('')}</div>
   </div>
 </div></section>`,
   }),

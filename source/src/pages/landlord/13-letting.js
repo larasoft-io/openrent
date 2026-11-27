@@ -142,7 +142,7 @@ const term = (o) => `<div class="row" style="align-items:flex-start"><span class
   ${o.extra || ''}
   <div class="cluster mt-2">${o.rules.join('')}</div>
 </div></div>`;
-const cheque = (n, date, state = 'held') => `<div class="cheque"><div class="ch-top"><span>Emirates NBD</span><span>No. 00014${n}</span></div><div><div class="micro muted">Pay Fatima Al Hashimi</div><div class="ch-amt">AED 33,750</div></div><div class="between small"><span class="muted">Dated</span><b>${date}</b></div><div class="ch-micr">⑆00014${n}⑆ 026 ⑈1017704417⑈</div><span class="stamp held">In custody</span></div>`;
+const cheque = (n, date, state = 'held') => `<div class="cheque"><div class="ch-top"><span>ADCB</span><span>No. 00487${n}</span></div><div><div class="micro muted">Pay Fatima Al Hashimi</div><div class="ch-amt">AED 33,750</div></div><div class="between small"><span class="muted">Dated</span><b>${date}</b></div><div class="ch-micr">⑆00487${n}⑆ 0030 ⑈9920⑈</div><span class="stamp held">In custody</span></div>`;
 
 const contract = {
   slug: 'contract', nav: 'contract', title: 'Contract', sub: 'Executive Towers 1807 · awaiting your signature',
@@ -187,7 +187,7 @@ const contract = {
       <div class="bi"><div><span class="clause-n">Annual rent</span><br>AED 135,000 in four cheques</div><div class="ar"><span class="clause-n">الإيجار السنوي</span><br>١٣٥٬٠٠٠ درهم على أربعة شيكات</div></div>
       <div class="bi"><div><span class="clause-n">Security deposit</span><br>AED 6,750, held by the broker in a client account</div><div class="ar"><span class="clause-n">مبلغ التأمين</span><br>٦٬٧٥٠ درهم، يُحفظ لدى الوسيط في حساب العملاء</div></div>
       <div class="bi"><div><span class="clause-n">Additional term 3</span><br>No smoking inside the apartment.</div><div class="ar"><span class="clause-n">شرط إضافي ٣</span><br>يُمنع التدخين داخل الشقة.</div></div>
-      <div class="between small muted" style="padding-top:10px;border-top:1px solid var(--line-2)"><span class="inline">${icon('pen-line', 14)} Tenants signed with UAE Pass · 23 Nov 2026, 21:14</span><span>Page 1 of 6</span></div>
+      <div class="between small muted" style="padding-top:10px;border-top:1px solid var(--line-2)"><span class="inline">${icon('pen-line', 14)} Tenants signed with UAE Pass · 22 Nov 2026, 20:14</span><span>Page 1 of 6</span></div>
     </div>
     <div class="btn-row">${btn('Download draft PDF', { icon: 'download', toast: 'Draft contract downloaded (demo)' })}${btn('View all 6 pages', { icon: 'file-text', toast: 'Full contract viewer (demo)' })}</div>`)}
 

@@ -128,15 +128,17 @@ function chips(items, active = 0, cls = '') {
 /** table({cols:[{label, r}], rows:[[cell,...]], stack:true}) — stack collapses to label/value cards on phones; first cell is the lead cell */
 function table(o) {
   const stack = o.stack !== false;
-  return `<div class="table-wrap"><table class="table${stack ? ' stackable' : ''}"><thead><tr>${o.cols.map(c => `<th${c.r ? ' class="r"' : ''}>${c.label}</th>`).join('')}</tr></thead><tbody>${o.rows.map(r => `<tr>${r.map((cell, i) => `<td${o.cols[i].r ? ' class="r' + (i === 0 ? ' lead-cell' : '') + '"' : (i === 0 ? ' class="lead-cell"' : '')} data-label="${esc(o.cols[i].label)}">${cell}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`;
+  return `<div class="table-wrap"><table class="table${stack ? ' stackable' : ''}"><thead><tr>${o.cols.map(c => `<th${c.r ? ' class="r"' : ''}>${c.label || '<span class="sr-only">Actions</span>'}</th>`).join('')}</tr></thead><tbody>${o.rows.map(r => `<tr>${r.map((cell, i) => `<td${o.cols[i].r ? ' class="r' + (i === 0 ? ' lead-cell' : '') + '"' : (i === 0 ? ' class="lead-cell"' : '')} data-label="${esc(o.cols[i].label)}">${cell}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`;
 }
 
 function sheet(id, title, body, foot) {
   return `<div class="sheet" id="${id}" role="dialog" aria-modal="true" aria-label="${esc(title)}"><div class="sheet-panel"><div class="sheet-grab"></div><div class="sheet-head"><h3>${title}</h3><button type="button" class="icon-btn" data-close aria-label="Close">${icon('x', 20)}</button></div><div class="sheet-body">${body}</div>${foot ? `<div class="sheet-foot">${foot}</div>` : ''}</div></div>`;
 }
 
+// Deterministic ids keep rebuilds byte-identical (no noisy diffs)
+let uid = 0; const nextId = p => p + (++uid).toString(36);
 function field(o) {
-  const id = o.id || 'f' + Math.random().toString(36).slice(2, 8);
+  const id = o.id || nextId('f');
   let control;
   if (o.type === 'select') control = `<select class="select" id="${id}">${o.options.map(v => `<option${v === o.value ? ' selected' : ''}>${v}</option>`).join('')}</select>`;
   else if (o.type === 'textarea') control = `<textarea class="textarea" id="${id}" placeholder="${esc(o.placeholder || '')}">${o.value || ''}</textarea>`;
@@ -150,7 +152,7 @@ function toggle(checked, o = {}) { return `<span class="switch"><input type="che
 function choice(name, title, desc, checked, o = {}) {
   return `<label class="choice${o.locked ? ' is-locked' : ''}"><input type="radio" name="${name}"${checked ? ' checked' : ''}${o.locked ? ' disabled' : ''}><span class="radio"></span><span class="grow"><b>${title}${o.badge ? ' ' + o.badge : ''}</b>${desc ? `<span class="d">${desc}</span>` : ''}</span>${o.end || ''}</label>`;
 }
-function stars(n) { return `<span class="stars" aria-label="${n} out of 5">${[1, 2, 3, 4, 5].map(i => `<svg viewBox="0 0 24 24" class="${i <= Math.round(n) ? '' : 'off'}"><path d="M12 2.500l2.900 6.100 6.600.900-4.800 4.600 1.200 6.600L12 17.500l-5.900 3.200 1.200-6.600L2.500 9.500l6.600-.900z"/></svg>`).join('')}</span>`; }
+function stars(n) { return `<span class="stars" role="img" aria-label="${n} out of 5">${[1, 2, 3, 4, 5].map(i => `<svg viewBox="0 0 24 24" class="${i <= Math.round(n) ? '' : 'off'}"><path d="M12 2.500l2.900 6.100 6.600.900-4.800 4.600 1.200 6.600L12 17.500l-5.900 3.200 1.200-6.600L2.500 9.500l6.600-.900z"/></svg>`).join('')}</span>`; }
 function docIco(kind = 'PDF', cls = '') { return `<span class="doc-ico ${cls}">${kind}</span>`; }
 function chat(msgs) {
   return `<div class="chat">${msgs.map(m => m.day ? `<span class="chat-day">${m.day}</span>` : `<div class="bubble ${m.who || ''}">${m.text}${m.time ? `<time>${m.time}</time>` : ''}</div>`).join('')}</div>`;
@@ -213,13 +215,13 @@ function lineChart(o) {
     const pts = s.data.map((v, i) => [X(i), Y(v)]);
     let d = `M${pts[0][0].toFixed(1)},${pts[0][1].toFixed(1)}`;
     for (let i = 1; i < pts.length; i++) { const [x0, y0] = pts[i - 1], [x1, y1] = pts[i], cx = (x0 + x1) / 2; d += ` C${cx.toFixed(1)},${y0.toFixed(1)} ${cx.toFixed(1)},${y1.toFixed(1)} ${x1.toFixed(1)},${y1.toFixed(1)}`; }
-    const id = 'lg' + Math.random().toString(36).slice(2, 7);
+    const id = nextId('lg');
     if (s.area !== false && si === 0) out += `<defs><linearGradient id="${id}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${tone(s.tone)}" stop-opacity=".22"/><stop offset="1" stop-color="${tone(s.tone)}" stop-opacity="0"/></linearGradient></defs><path d="${d} L${X(n - 1).toFixed(1)},${pt + innerH} L${X(0).toFixed(1)},${pt + innerH} Z" fill="url(#${id})"/>`;
     out += `<path d="${d}" fill="none" stroke="${tone(s.tone)}" stroke-width="2.500" stroke-linecap="round"${s.dash ? ' stroke-dasharray="4 5"' : ''}/>`;
     if (!s.dash) { const [lx, ly] = pts[pts.length - 1]; out += `<circle cx="${lx.toFixed(1)}" cy="${ly.toFixed(1)}" r="4.500" fill="#fff" stroke="${tone(s.tone)}" stroke-width="2.500"/>`; }
   });
   const step = Math.ceil(n / 7);
-  o.labels.forEach((lab, i) => { if (i % step === 0 || i === n - 1) out += `<text x="${X(i).toFixed(1)}" y="${H - 6}" text-anchor="${i === 0 ? 'start' : i === n - 1 ? 'end' : 'middle'}">${lab}</text>`; });
+  o.labels.forEach((lab, i) => { if ((i % step === 0 && n - 1 - i >= step) || i === n - 1) out += `<text x="${X(i).toFixed(1)}" y="${H - 6}" text-anchor="${i === 0 ? 'start' : i === n - 1 ? 'end' : 'middle'}">${lab}</text>`; });
   return `<svg class="chart" viewBox="0 0 ${W} ${H}" role="img" aria-label="${esc(o.label || 'Line chart')}">${out}</svg>`;
 }
 

@@ -29,7 +29,7 @@ ${stats([
 <div class="stack">
   ${sectionHead('Needs you today')}
   <div class="card">${list([
-    { href: 'contract.html', icon: 'file-signature', tone: 'accent', title: 'Sign the contract for Executive Towers 1807', badge: badge('Today', 'accent'), sub: 'Arjun & Neha Mehta signed yesterday. Your signature starts Ejari registration — move-in is Sat 5 Dec.' },
+    { href: 'contract.html', icon: 'file-signature', tone: 'accent', title: 'Sign the contract for Executive Towers 1807', badge: badge('Today', 'accent'), sub: 'Arjun & Neha Mehta signed on Sunday. Your signature starts Ejari registration — move-in is Sat 5 Dec.' },
     { href: 'renewals.html', icon: 'refresh-cw', tone: 'warn', title: 'Marina Gate 2304 — renewal window closes Mon 30 Nov', badge: badge('6 days', 'warn'), sub: 'Your offer of AED 110,000 was sent on 18 Nov, inside the 90-day rule. Waiting for Maya to reply.' },
     { href: 'arrears.html', icon: 'circle-alert', tone: 'danger', title: 'Zahra Townhouse 114 — cheque 3 returned', badge: badge('AED 36,250', 'danger'), sub: 'The notarised 30-day notice was served on 9 Nov and runs to 9 Dec. Nothing else may be done before then.' },
     { href: 'offers.html', icon: 'hand-coins', tone: 'brand', title: '2 offers on Bloom Towers studio', badge: badge('Reply by Thu', 'brand'), sub: 'AED 54,000 in 4 cheques, or AED 52,000 paid monthly. Both applicants are fully verified.' },
@@ -89,7 +89,7 @@ ${pageHead({ title: 'Notifications', actions: btn('Mark all read', { size: 'sm',
 ${chips(['All', ['Action needed', 4], 'Letting', 'Money', 'Repairs', 'Legal'])}
 <div class="hr-label">Today</div>
 <div class="card">${list([
-  { href: 'contract.html', unread: true, icon: 'file-signature', tone: 'accent', title: 'Contract ready for your signature', sub: 'Executive Towers 1807 · the Mehtas signed with UAE Pass last night', endSub: '08:02' },
+  { href: 'contract.html', unread: true, icon: 'file-signature', tone: 'accent', title: 'Contract ready for your signature', sub: 'Executive Towers 1807 · the Mehtas signed with UAE Pass on Sunday evening', endSub: '08:02' },
   { href: 'maintenance.html', unread: true, icon: 'truck', tone: 'info', title: 'Plumber on the way to Marina Gate 2304', sub: 'Kitchen tap leak · within your AED 600 approval', endSub: '10:52' },
   { href: 'viewings.html', icon: 'calendar-days', tone: 'brand', title: '2 viewings this evening at Bloom Towers', sub: 'Hosted by Jun Reyes · 17:30 and 18:15', endSub: '09:00' },
 ])}</div>

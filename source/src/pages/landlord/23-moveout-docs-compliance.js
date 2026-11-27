@@ -106,7 +106,7 @@ ${pageHead({ eyebrow: 'Tenant gave notice 28 Sep 2026', title: 'Move-out', sub: 
 </aside>
 </div>`,
   sheets: () => sheet('sheet-deduct', 'Add a deduction',
-    `<div class="field"><span class="label">Evidence photo (required)</span><div class="photo-grid"><div class="ph"><img src="${B}assets/img/kitchen-b.svg" alt=""></div><button type="button" class="ph add" data-toast="Choose from check-out photos (demo)">${icon('images', 22)}</button><button type="button" class="ph add" data-toast="Camera opened (demo)">${icon('camera', 22)}</button></div><span class="hint">Pick the matching move-in photo too — we show them side by side to the tenant.</span></div>
+    `<div class="field"><span class="label">Evidence photo (required)</span><div class="photo-grid"><div class="ph"><img src="${B}assets/img/kitchen-b.svg" alt=""></div><button type="button" class="ph add" aria-label="Add from photo library" data-toast="Choose from check-out photos (demo)">${icon('images', 22)}</button><button type="button" class="ph add" aria-label="Take a photo" data-toast="Camera opened (demo)">${icon('camera', 22)}</button></div><span class="hint">Pick the matching move-in photo too — we show them side by side to the tenant.</span></div>
      <div class="field"><span class="label">Reason</span>
        ${choice('dr', 'Damage beyond normal use', 'Broken, burnt, stained or holed', true)}
        ${choice('dr', 'Alteration not put back', 'Paint colour, fixtures, locks', false)}

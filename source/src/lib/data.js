@@ -8,6 +8,7 @@ const company = {
 };
 
 const people = {
+  applicant: { name: 'Arjun Mehta', first: 'Arjun', role: 'Applicant', sub: 'Moving in Sat 5 Dec', email: 'arjun.mehta@example.com', phone: '+971 50 555 0163', job: 'Finance Director, Gulfstar Logistics', eid: '784-1987-•••••••-6' },
   tenant: { name: 'Maya Fernandes', first: 'Maya', role: 'Tenant', sub: 'Marina Gate 1 · Apt 2304', email: 'maya.fernandes@example.com', phone: '+971 50 555 0142', job: 'Senior Brand Manager, Meridian Hospitality Group', eid: '784-1991-•••••••-4' },
   landlord: { name: 'Fatima Al Hashimi', first: 'Fatima', role: 'Landlord', sub: '7 properties', email: 'fatima@alhashimi.example', phone: '+971 50 555 0107' },
   contractor: { name: 'Imran Sheikh', first: 'Imran', role: 'Contractor', sub: 'Falcon Technical Services', email: 'imran@falcontech.example', phone: '+971 55 555 0188', company: 'Falcon Technical Services L.L.C', trades: ['AC & ventilation', 'Plumbing', 'Electrical', 'Handyman'] },
@@ -24,7 +25,7 @@ const STAGES = ['Draft', 'Verification', 'Live', 'Viewings', 'Offers', 'Contract
 const properties = [
   { id: 'p1', img: 'p1.svg', name: 'Marina Gate 1 · Apt 2304', short: 'Marina Gate 2304', area: 'Dubai Marina', type: 'Apartment', beds: 1, baths: 2, sqft: 812, furnished: false, rent: 105000, deposit: 5250,
     stage: 9, status: 'Renewal window', tone: 'warn', tenant: 'Maya Fernandes', start: '1 Mar 2026', end: '28 Feb 2027', pay: '12 direct debits · Flexi Rent', ejari: '0120260301004417', permit: '71452208931', dewa: '2030148866', makani: '13245 77281',
-    note: 'Renewal offer sent 18 Nov · awaiting tenant' },
+    note: 'Offer sent 18 Nov · awaiting tenant' },
   { id: 'p2', img: 'p2.svg', name: 'Bloom Towers B · Studio 915', short: 'Bloom Towers 915', area: 'Jumeirah Village Circle', type: 'Studio', beds: 0, baths: 1, sqft: 410, furnished: true, rent: 54000, deposit: 5400,
     stage: 3, status: 'Live · viewings', tone: 'info', permit: '71460017342', note: '23 enquiries · 6 viewings · 2 offers' },
   { id: 'p3', img: 'p3.svg', name: 'Palma Villa 27', short: 'Palma Villa 27', area: 'Arabian Ranches 2', type: 'Villa', beds: 4, baths: 5, sqft: 3480, furnished: false, rent: 310000, deposit: 15500,

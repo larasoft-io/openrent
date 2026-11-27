@@ -32,7 +32,7 @@ ${guard({ title: 'Who pays for what', sub: 'Decided before a contractor is booke
   sheets: () => sheet('sheet-new-repair', 'Report a repair',
     `<div class="field"><span class="label">What is the problem with?</span>${ui.chips(['Plumbing', 'AC / cooling', 'Electrical', 'Appliance', 'Doors & windows', 'Pests', 'Other'], 0, 'wrap')}</div>
      ${field({ label: 'Describe it', type: 'textarea', placeholder: 'e.g. Water drips from the base of the kitchen tap when it is running' })}
-     <div class="field"><span class="label">Photos or video</span><div class="photo-grid"><div class="ph"><img src="${B}assets/img/kitchen-a.svg" alt=""></div><button type="button" class="ph add" data-toast="Camera opened (demo)">${icon('camera', 22)}</button><button type="button" class="ph add" data-toast="Library opened (demo)">${icon('image-plus', 22)}</button></div></div>
+     <div class="field"><span class="label">Photos or video</span><div class="photo-grid"><div class="ph"><img src="${B}assets/img/kitchen-a.svg" alt=""></div><button type="button" class="ph add" aria-label="Take a photo" data-toast="Camera opened (demo)">${icon('camera', 22)}</button><button type="button" class="ph add" aria-label="Add from photo library" data-toast="Library opened (demo)">${icon('image-plus', 22)}</button></div></div>
      <div class="field"><span class="label">How urgent is it?</span>
        ${choice('urg', 'Routine', 'Fixed within 5 working days', true)}
        ${choice('urg', 'Urgent', 'Affecting daily life — within 48 hours', false)}
