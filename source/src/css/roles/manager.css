@@ -16,6 +16,8 @@
 .mg-task .ck{display:grid;place-items:center;flex:none;width:22px;height:22px;border-radius:50%;margin-top:1px;border:2px solid #CFC8BA;color:transparent}
 .mg-task.done .ck{background:var(--ok);border-color:var(--ok);color:#fff}
 .mg-task.now .ck{border-color:var(--accent);background:var(--accent-soft);color:var(--accent-ink)}
+.mg-task.wait .ck{border-color:var(--warn);background:var(--warn-soft);color:var(--warn)}
+.mg-task.lock .ck{color:var(--muted)}
 .mg-task.block .ck{border-color:var(--danger);background:var(--danger-soft);color:var(--danger)}
 .mg-task .ck svg{width:13px;height:13px;stroke-width:3}
 .mg-task.done b{color:var(--muted);font-weight:600}

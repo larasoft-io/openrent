@@ -3,8 +3,8 @@ const ui = require('./ui');
 const { icon, logo, mark, avatar, esc } = ui;
 const { people } = require('./data');
 
-const ROLE_ORDER = ['tenant', 'landlord', 'contractor', 'manager', 'admin', 'rep', 'field', 'compliance'];
-const ROLE_COLORS = { tenant: '#F0653A', landlord: '#0B6B5D', contractor: '#B98A34', manager: '#27619E', admin: '#5B4BB7', rep: '#0E7490', field: '#A2466C', compliance: '#3F5B4A' };
+const ROLE_ORDER = ['applicant', 'tenant', 'landlord', 'contractor', 'manager', 'admin', 'rep', 'field', 'compliance'];
+const ROLE_COLORS = { applicant: '#C2410C', tenant: '#F0653A', landlord: '#0B6B5D', contractor: '#B98A34', manager: '#27619E', admin: '#5B4BB7', rep: '#0E7490', field: '#A2466C', compliance: '#3F5B4A' };
 
 function head(title, base, extraCss = '') {
   return `<!doctype html>

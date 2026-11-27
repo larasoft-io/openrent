@@ -101,7 +101,7 @@ const tenancy = {
   ${tabs('tk', [{ id: 'all', label: 'Checklist', n: 17 }, { id: 'ejari', label: 'Ejari pack' }, { id: 'follow', label: 'Follow-ups' }, { id: 'audit', label: 'Audit trail' }], 'all')}
 
   ${panel('tk', 'all', `
-    <div class="card pad stack stack-sm"><div class="between"><b class="strong">Before move-in</b><span class="small strong">10 of 17 done</span></div>${bar(59, 'accent')}</div>
+    <div class="card pad stack stack-sm"><div class="between"><b class="strong">Before move-in</b><span class="small strong">11 of 17 done</span></div>${bar(65, 'accent')}</div>
     ${card({ title: 'Landlord · Fatima', headEnd: badge('1 blocking', 'danger'), body:
       task('now', 'Sign the tenancy contract with UAE Pass', 'Sent Sun 22 Nov · opened once · nudged twice') +
       task('done', 'Service charges up to date', 'Owners’ association confirmed 23 Nov — needed for the move-in permit') +
@@ -109,15 +109,15 @@ const tenancy = {
       task('', 'Hand keys, 2 access cards and parking tag to the field agent', 'By Thu 3 Dec · Jun Reyes collects') })}
     ${card({ title: 'Tenants · Arjun & Neha', headEnd: badge('On track', 'ok'), body:
       task('done', 'Contract signed with UAE Pass', 'Both tenants · Sun 22 Nov, 20:14') +
-      task('done', 'Deposit AED 6,750 paid into safeguarding', 'DEP-2611-0522 · 5% of annual rent') +
+      task('done', 'Deposit AED 6,750 paid into safeguarding', 'DEP-2611-0498 · 5% of annual rent') +
       task('done', 'Move.me fee and Ejari fee paid', 'AED 261.45 + AED 177.75') +
-      task('now', 'Hand over 4 rent cheques for custody', '4 × AED 33,750 · first dated 5 Dec · appointment Tue 1 Dec, 17:30') +
+      task('done', 'Hand over 4 rent cheques for custody', '4 × AED 33,750 · first dated 5 Dec · lodged at our Business Bay office Mon 23 Nov') +
       task('now', 'Register everyone moving in', 'Arjun and Neha added · daughter Anika’s Emirates ID still to upload') +
       task('', 'Apply for DEWA move-in', 'Unlocks once the Ejari number exists') +
       task('', 'Book movers and lift slot', 'Executive Towers allows moves Sat–Thu, 09:00–17:00') })}
     ${card({ title: 'Me · Layla', headEnd: badge('2 blocked', 'warn'), body:
       task('done', 'Referencing signed off', 'Fri 20 Nov · all five checks passed') +
-      task('done', 'Contract checked against ruleset 2026.3', '0 clauses below the legal floor · 2 better-than-law terms') +
+      task('done', 'Contract checked against ruleset 2026.3', '0 clauses below the legal floor · 1 better-than-law term') +
       task('done', 'Advert paused, permit 71458830117 retained', '') +
       task('block', 'Submit Ejari to Dubai REST', 'Needs both signatures') +
       task('block', 'Request building move-in permit', 'Needs Ejari certificate and signed contract') +
@@ -157,7 +157,7 @@ const tenancy = {
     { state: 'done', icon: 'bell', title: 'Reminder sent to Fatima', when: 'Mon 23 Nov, 09:00 · automatic' },
     { state: 'done', icon: 'lock-keyhole', title: 'Deposit AED 6,750 received into client account', when: 'Sun 22 Nov, 20:31 · bank feed' },
     { state: 'done', icon: 'pen-line', title: 'Tenants signed the contract', body: 'UAE Pass signatures · document hash 9f3c…a71e', when: 'Sun 22 Nov, 20:14' },
-    { state: 'done', icon: 'shield-check', title: 'Contract passed ruleset 2026.3', body: '14 clauses checked · early-exit penalty set to 1 month (better than standard)', when: 'Sun 22 Nov, 11:02 · automatic' },
+    { state: 'done', icon: 'shield-check', title: 'Contract passed ruleset 2026.3', body: '14 clauses checked · 0 below the legal floor · annual AC service added (better than law)', when: 'Sun 22 Nov, 11:02 · automatic' },
     { state: 'done', icon: 'user-check', title: 'Referencing signed off', when: 'Fri 20 Nov, 16:40 · Layla Haddad' },
     { state: 'done', icon: 'handshake', title: 'Offer accepted at AED 135,000', body: 'Asking AED 138,000 · 4 cheques · move-in 5 Dec', when: 'Wed 18 Nov, 19:22 · Fatima Al Hashimi' },
   ]) }))}
@@ -170,7 +170,7 @@ const tenancy = {
     { lead: avatar('Fatima Al Hashimi'), title: 'Fatima Al Hashimi', sub: 'Landlord · travelling, back tonight', endBadge: badge('Pending', 'warn') },
     { lead: avatar('Jun Reyes', { tone: 'c5' }), title: 'Jun Reyes', sub: 'Field agent · keys and move-in report' },
   ]) })}
-  ${card({ title: 'Money on this tenancy', body: kv([['Deposit held', money(6750)], ['Cheques in custody', '0 of 4'], ['Let.me fee (landlord)', 'AED 899 · invoiced'], ['Move.me fee (tenant)', 'AED 249 · paid'], ['Ejari fee', 'AED 177.75 · paid']]) })}
+  ${card({ title: 'Money on this tenancy', body: kv([['Deposit held', money(6750)], ['Cheques in custody', '4 of 4'], ['Let.me fee (landlord)', 'AED 899 · invoiced'], ['Move.me fee (tenant)', 'AED 249 · paid'], ['Ejari fee', 'AED 177.75 · paid']]) })}
   ${card({ title: 'Critical path', body: timeline([
     { state: 'now', icon: 'pen-line', title: 'Landlord signature', when: 'needed by Mon 30 Nov' },
     { icon: 'file-check', title: 'Ejari certificate', when: 'same day' },

@@ -8,6 +8,7 @@ const company = {
 };
 
 const people = {
+  applicant: { name: 'Arjun Mehta', first: 'Arjun', role: 'Applicant', sub: 'Moving in Sat 5 Dec', email: 'arjun.mehta@example.com', phone: '+971 50 555 0163', job: 'Finance Director, Gulfstar Logistics', eid: '784-1987-•••••••-6' },
   tenant: { name: 'Maya Fernandes', first: 'Maya', role: 'Tenant', sub: 'Marina Gate 1 · Apt 2304', email: 'maya.fernandes@example.com', phone: '+971 50 555 0142', job: 'Senior Brand Manager, Meridian Hospitality Group', eid: '784-1991-•••••••-4' },
   landlord: { name: 'Fatima Al Hashimi', first: 'Fatima', role: 'Landlord', sub: '7 properties', email: 'fatima@alhashimi.example', phone: '+971 50 555 0107' },
   contractor: { name: 'Imran Sheikh', first: 'Imran', role: 'Contractor', sub: 'Falcon Technical Services', email: 'imran@falcontech.example', phone: '+971 55 555 0188', company: 'Falcon Technical Services L.L.C', trades: ['AC & ventilation', 'Plumbing', 'Electrical', 'Handyman'] },

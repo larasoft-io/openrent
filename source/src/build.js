@@ -60,7 +60,7 @@ function build() {
     if (only && only !== id) continue;
     const dir = path.join(root, 'src/pages', id);
     if (!fs.existsSync(dir)) continue;
-    for (const f of fs.readdirSync(dir).filter(f => f.endsWith('.js')).sort()) {
+    for (const f of fs.readdirSync(dir).filter(f => f.endsWith('.js') && !f.startsWith('_')).sort()) {
       let mod; try { mod = load(path.join(dir, f)); } catch (e) { console.log(`SKIPPED ${id}/${f}: ${e.message}`); continue; }
       for (const page of [].concat(mod)) {
         try {

@@ -4,6 +4,7 @@ module.exports = {
   render: ({ data, ui, shell, roles }) => {
     const { icon, badge, avatar, pageHead } = ui;
     const blurb = {
+      applicant: 'Offer accepted, now moving in: referencing, contract, move-in costs, Ejari and keys.',
       tenant: 'One home, start to finish: rent, repairs, renewal, rights and move-out.',
       landlord: 'Seven properties at seven different stages, with legal guardrails on every action.',
       contractor: 'Jobs, quotes, schedule and payouts for a maintenance company.',
@@ -13,7 +14,7 @@ module.exports = {
       field: 'Hosts viewings, runs inspections, hands over keys.',
       compliance: 'KYC, AML, client money and regulator reporting.',
     };
-    const core = ['tenant', 'landlord', 'contractor', 'manager', 'admin'], extra = ['rep', 'field', 'compliance'];
+    const core = ['applicant', 'tenant', 'landlord', 'contractor', 'manager', 'admin'], extra = ['rep', 'field', 'compliance'];
     const tile = id => roles[id] ? `<a class="card pad link-card stack stack-md role-${id}" href="${id}/index.html">
       <div class="between"><span class="row-ico role" style="width:48px;height:48px;border-radius:15px">${icon(roles[id].icon || 'user', 24)}</span>${icon('arrow-up-right', 20, 'faint')}</div>
       <div><h2>${roles[id].label}</h2><p class="small muted mt-1">${blurb[id]}</p></div>

@@ -41,6 +41,7 @@
   --gut:16px;
   --role:var(--brand); --role-soft:var(--brand-soft);
 }
+.role-applicant{--role:#C2410C;--role-soft:#FCE7DB}
 .role-tenant{--role:#F0653A;--role-soft:#FDE8DE}
 .role-landlord{--role:#0B6B5D;--role-soft:#DDEFEA}
 .role-contractor{--role:#B98A34;--role-soft:#F6ECD6}
