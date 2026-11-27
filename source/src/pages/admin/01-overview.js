@@ -3,14 +3,14 @@ const { icon, badge, btn, card, list, kv, callout, rule, stats, timeline, lineCh
 const { hbar, funnel, tile } = require('./_h');
 
 const sla = (ic, title, pct, target, sub, chip) => `<div class="card pad stack stack-sm">
-  <div class="between"><span class="inline small strong">${icon(ic, 16, 't-ok')}${title}</span>${badge('On target', 'ok', { dot: true })}</div>
-  <div class="between"><span class="hero-num" style="font-size:30px">${pct}<small>%</small></span><span class="small muted right">target ${target}%<br>${sub}</span></div>
-  ${bar(pct, 'ok', true)}${chip ? `<div>${chip}</div>` : ''}</div>`;
+  <span class="inline small strong">${icon(ic, 16, 't-ok')}${title}</span>
+  <div class="between" style="align-items:flex-end"><span class="hero-num" style="font-size:30px">${pct}<small>%</small></span>${badge('On target', 'ok', { dot: true })}</div>
+  ${bar(pct, 'ok', true)}<span class="micro muted">Target ${target}% · ${sub}</span>${chip ? `<div>${chip}</div>` : ''}</div>`;
 
 const overview = {
   slug: 'index', nav: 'home', title: 'Overview', sub: 'Tue 24 Nov 2026',
   body: () => `
-${pageHead({ eyebrow: 'Platform overview · Dubai', title: 'Good morning, Sami', sub: 'Everything is running. Three things want a decision from you today.', actions: btn('Last 30 days', { icon: 'calendar-clock', size: 'sm', toast: 'Date range picker (demo)' }) + btn('Board pack', { icon: 'download', size: 'sm', toast: 'Board pack exported (demo)' }) })}
+${pageHead({ eyebrow: 'Platform overview · Dubai', title: 'Good morning, Sami', sub: 'Everything is running. Five things want a decision from you today.', actions: btn('Last 30 days', { icon: 'calendar-clock', size: 'sm', toast: 'Date range picker (demo)' }) + btn('Board pack', { icon: 'download', size: 'sm', toast: 'Board pack exported (demo)' }) })}
 
 ${stats([
   { label: 'Active tenancies', icon: 'house', value: '4,860', delta: '3.1%', sub: 'vs October' },

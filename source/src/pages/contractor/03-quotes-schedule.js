@@ -20,7 +20,7 @@ ${panel('q', 'build', `
   <div class="card pad stack stack-md">
     <div class="between-top"><div><span class="eyebrow">Quote Q-2304-1 · AC</span><h2 class="mt-1">AC not cooling — living room unit</h2><div class="small muted mt-1">Zahra Townhouse 114 · Town Square · tenant Hassan El-Sayed</div></div>${badge('Awaiting landlord', 'warn', { lg: true })}</div>
     <div class="callout neutral" style="padding:10px 12px">${icon('search', 18)}<p class="grow"><b>Diagnosis (09:00 visit):</b> compressor run capacitor failed and system pressure low. Capacitor to replace, leak-test, top up refrigerant. Outdoor unit otherwise healthy.</p></div>
-    <div class="photo-grid"><div class="ph"><img src="${B}assets/img/p7.svg" alt="Outdoor unit"></div><div class="ph"><img src="${B}assets/img/living-d.svg" alt="Indoor unit"></div><button type="button" class="ph add" data-toast="Camera opened (demo)">${icon('camera', 22)}</button></div>
+    <div class="photo-grid"><div class="ph"><img src="${B}assets/img/p7.svg" alt="Outdoor unit"></div><div class="ph"><img src="${B}assets/img/living-d.svg" alt="Indoor unit"></div><button type="button" class="ph add" aria-label="Take a photo" data-toast="Camera opened (demo)">${icon('camera', 22)}</button></div>
   </div>
 
   ${card({ title: 'Line items', headEnd: `<button type="button" class="link" data-sheet="sheet-qline">Add line</button>`, flush: true, body: `<div class="list">

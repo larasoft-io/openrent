@@ -142,7 +142,7 @@ const listing = {
         { state: 'info', title: 'Whole home only — no room sharing or sub-letting', rule: rchip('DXB-S04', 'Shared housing') },
       ] })}</div>
 
-    <div class="stack stack-sm"><h2 class="d3">Where it is</h2><div class="mapbox"><img src="assets/img/map.svg" alt="Map"></div></div>
+    <div class="stack stack-sm"><h2 class="d3">Where it is</h2><div class="mapbox"><img src="assets/img/map-jvc.svg" alt="Map showing Bloom Towers B in Jumeirah Village Circle"></div></div>
   </div>
 
   <aside class="stack sticky-side" style="top:92px">

@@ -41,6 +41,7 @@ function assets() {
     'bath-a.svg': art.bathroom(14), 'bath-b.svg': art.bathroom(15, { acc: '#C96F4A' }),
     'map.svg': art.map([[118, 372, 'AED 105k', true], [300, 452, '54k'], [545, 232, '135k'], [612, 196, '195k'], [215, 400, '92k'], [400, 328, '78k'], [505, 432, '240k']]),
     'map-marina.svg': art.map([[118, 372, 'Marina Gate 1', true]]),
+    'map-jvc.svg': art.map([[300, 452, 'Bloom Towers B', true]]),
     'favicon.svg': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40">${ui.mark().replace(/^<svg[^>]*>|<\/svg>$/g, '')}</svg>`,
   };
   Object.entries(img).forEach(([k, v]) => write('assets/img/' + k, v));
@@ -53,7 +54,7 @@ function load(file) { delete require.cache[require.resolve(file)]; return requir
 function build() {
   assets();
   const roles = {};
-  fs.readdirSync(path.join(root, 'src/roles')).filter(f => f.endsWith('.js')).forEach(f => { try { const r = load(path.join(root, 'src/roles', f)); roles[r.id] = r; } catch (e) { console.log(`SKIPPED role ${f}: ${e.message}`); } });
+  fs.readdirSync(path.join(root, 'src/roles')).filter(f => f.endsWith('.js')).sort().forEach(f => { try { const r = load(path.join(root, 'src/roles', f)); roles[r.id] = r; } catch (e) { console.log(`SKIPPED role ${f}: ${e.message}`); } });
   let n = 0;
   for (const id of Object.keys(roles)) {
     if (only && only !== id) continue;

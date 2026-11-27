@@ -100,7 +100,7 @@ const detail = {
   ]) })}
 
   ${card({ title: 'Photos', body: `<div class="between small mb-2"><b class="strong">Before</b><span class="muted">0 of 3</span></div>
-    <div class="photo-grid"><button type="button" class="ph add" data-toast="Camera opened (demo)">${icon('camera', 22)}</button><button type="button" class="ph add" data-toast="Camera opened (demo)">${icon('camera', 22)}</button><button type="button" class="ph add" data-toast="Camera opened (demo)">${icon('camera', 22)}</button></div>
+    <div class="photo-grid"><button type="button" class="ph add" aria-label="Take a photo" data-toast="Camera opened (demo)">${icon('camera', 22)}</button><button type="button" class="ph add" aria-label="Take a photo" data-toast="Camera opened (demo)">${icon('camera', 22)}</button><button type="button" class="ph add" aria-label="Take a photo" data-toast="Camera opened (demo)">${icon('camera', 22)}</button></div>
     <div class="between small mt-4 mb-2"><b class="strong">After</b><span class="muted">unlocks when the repair is recorded</span></div>
     <div class="photo-grid" style="opacity:.5"><div class="ph add">${icon('lock', 20)}</div><div class="ph add">${icon('lock', 20)}</div><div class="ph add">${icon('lock', 20)}</div></div>` })}
 
@@ -140,7 +140,7 @@ const detail = {
     `<p class="small muted">Sends a variation to the landlord for approval. Work pauses until she answers; the tenant is kept informed.</p>
      ${field({ label: 'What did you find?', type: 'textarea', value: 'Tap body is corroded at the base — cartridge alone will not stop the leak. Recommend replacing the mixer.' })}
      <div class="form-grid c2">${field({ label: 'New total needed', value: '780', prefix: 'AED', inputmode: 'numeric', hint: 'Current limit AED 600' })}${field({ label: 'Extra time on site', type: 'select', options: ['None', '30 minutes', '1 hour', 'Return visit needed'], value: '30 minutes' })}</div>
-     <div class="field"><span class="label">Evidence (required)</span><div class="photo-grid"><div class="ph"><img src="${B}assets/img/kitchen-b.svg" alt=""></div><button type="button" class="ph add" data-toast="Camera opened (demo)">${icon('camera', 22)}</button><button type="button" class="ph add" data-toast="Library opened (demo)">${icon('image-plus', 22)}</button></div></div>
+     <div class="field"><span class="label">Evidence (required)</span><div class="photo-grid"><div class="ph"><img src="${B}assets/img/kitchen-b.svg" alt=""></div><button type="button" class="ph add" aria-label="Take a photo" data-toast="Camera opened (demo)">${icon('camera', 22)}</button><button type="button" class="ph add" aria-label="Add from photo library" data-toast="Library opened (demo)">${icon('image-plus', 22)}</button></div></div>
      ${callout({ tone: 'neutral', icon: 'timer', body: 'Landlords answer variations in 25 minutes on average. If there is no answer in 2 hours, your manager decides.' })}`,
     btn('Cancel', { attrs: { 'data-close': true } }) + btn('Send for approval', { variant: 'primary', toast: 'Variation sent to Fatima — work paused (demo)' }))
   + sheet('sheet-line', 'Add a line',

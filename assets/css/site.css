@@ -216,8 +216,8 @@ body.has-buybar{padding-bottom:calc(72px + var(--sab))}
 .site-foot a:hover{color:#fff}
 .foot-grid{display:grid;gap:28px;grid-template-columns:repeat(2,minmax(0,1fr))}
 .foot-grid>div:first-child{grid-column:1/-1}
-.foot-grid h4{font:700 12px/1 var(--font-body);letter-spacing:.09em;text-transform:uppercase;color:#6F857E;margin-bottom:12px}
+.foot-grid h4{font:700 12px/1 var(--font-body);letter-spacing:.09em;text-transform:uppercase;color:#8A9F98;margin-bottom:12px}
 .foot-grid ul{display:flex;flex-direction:column;gap:9px}
 @media (min-width:900px){.foot-grid{grid-template-columns:1.6fr repeat(4,1fr)}.foot-grid>div:first-child{grid-column:auto}}
-.foot-legal{margin-top:32px;padding-top:20px;border-top:1px solid rgba(255,255,255,.1);font-size:12.5px;line-height:1.55;color:#6F857E;display:flex;flex-direction:column;gap:8px}
+.foot-legal{margin-top:32px;padding-top:20px;border-top:1px solid rgba(255,255,255,.1);font-size:12.5px;line-height:1.55;color:#8A9F98;display:flex;flex-direction:column;gap:8px}
 .tile>.pill-num,.tile>.badge{align-self:flex-start}
