@@ -15,6 +15,8 @@ Everything is static: open `index.html` in a browser, or serve the folder with a
 | `app/manager/` | OpenRent Manager — Layla Haddad, RERA-licensed tenancy manager |
 | `app/admin/` | Super Admin — rulesets, fees, roles, finance, audit |
 | `app/rep/`, `app/field/`, `app/compliance/` | Supporting roles: owner's representative (PoA), field agent, compliance officer |
+| `signup.html`, `signin.html` | Create an account (role picker → details → mobile code → email link), sign in with UAE Pass, password or one-time code, and reset a password |
+| `app/start/` | First-run setup for renters, landlords, contractors, owner's representatives and invited OpenRent staff, ending in each role's dashboard |
 | `app/rulebook.html` | The 25 legal guardrails with sources; every rule chip in the dashboards links here |
 
 Switch role at any time from the avatar (top right) or the sidebar on desktop.

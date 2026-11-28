@@ -27,6 +27,7 @@ ${extra.some(id => roles[id]) ? `<div class="section-head"><h2>Supporting roles<
 <div class="section-head"><h2>Shared</h2></div>
 <div class="grid sm2 lg3">
   <a class="card pad link-card stack stack-md" href="rulebook.html"><span class="row-ico brand" style="width:48px;height:48px;border-radius:15px">${icon('scale', 24)}</span><div><h2>The rulebook</h2><p class="small muted mt-1">Every legal guardrail, its source, and how the product enforces it.</p></div></a>
+  <a class="card pad link-card stack stack-md" href="start/index.html"><span class="row-ico brand" style="width:48px;height:48px;border-radius:15px">${icon('user-plus', 24)}</span><div><h2>Sign-up and setup</h2><p class="small muted mt-1">Create an account, verify, reset a password and set up each role for the first time.</p></div></a>
   <a class="card pad link-card stack stack-md" href="../index.html"><span class="row-ico accent" style="width:48px;height:48px;border-radius:15px">${icon('globe', 24)}</span><div><h2>Marketing site</h2><p class="small muted mt-1">openrent.me public website, search and pricing.</p></div></a>
 </div>`;
     return shell.plainPage({ title: 'Dashboards', body });
