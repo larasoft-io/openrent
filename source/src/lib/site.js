@@ -34,6 +34,10 @@ function calc() {
   </div>`;
 }
 
+// Error pages can be served by the host at any URL (e.g. /app/tenant/missing). Over http(s), resolve their
+// relative links from the site root so styles and links still work; opened from disk, they stay relative.
+const ROOT_BASE = `\n<script>if (/^https?:$/.test(location.protocol)) document.write('<base href="/">');</script>`;
+
 function sitePage(o) {
   const nav = NAV.map(([s, l]) => `<a href="${s}.html" class="${o.active === s ? 'is-active' : ''}">${l}</a>`).join('');
   const mnav = ui.sheet('sheet-nav', 'Menu', `<nav class="mnav">${NAV.map(([s, l, d]) => `<a href="${s}.html">${l}<span>${d}</span></a>`).join('')}<a href="how-it-works.html">How it works<span>Listing to keys back</span></a><a href="help.html">Help<span>Questions answered</span></a></nav>
@@ -41,7 +45,7 @@ function sitePage(o) {
   return `<!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
+<meta charset="utf-8">${o.rootBase ? ROOT_BASE : ''}
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#F7F3EC">
 <meta name="format-detection" content="telephone=no">

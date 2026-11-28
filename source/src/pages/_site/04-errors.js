@@ -26,7 +26,7 @@ module.exports = [
   {
     slug: '404',
     render: ({ ui }) => S.sitePage({
-      title: 'Page not found · openrent.me', desc: 'This page doesn’t exist or has moved.',
+      title: 'Page not found · openrent.me', rootBase: true, desc: 'This page doesn’t exist or has moved.',
       body: `<section class="sec"><div class="wrap"><div class="full-state"><div class="fs-inner">
   ${door(404)}
   <span class="fs-code">Error 404</span>
@@ -40,7 +40,7 @@ module.exports = [
   {
     slug: '500',
     render: ({ ui, shell }) => shell.plainPage({
-      title: 'Something went wrong', base: './', narrow: true,
+      title: 'Something went wrong', base: './', narrow: true, rootBase: true,
       body: `<div class="full-state"><div class="fs-inner">
   ${door(500)}
   <span class="fs-code">Error 500</span>
