@@ -3,6 +3,7 @@ const ui = require('../../lib/ui');
 const { icon, btn, badge, kv, rule, avatar, facts, glass, qr, callout, guard, field, choice, sheet, list, card } = ui;
 const { phone, phoneFig, browser, ticks, secHead, ctaBand } = S;
 const { rules, rulesets, R, company } = require('../../lib/data');
+const St = require('../../lib/states');
 const rchip = (id, label) => rule(id, label, 'app/');
 
 const legal = {
@@ -99,11 +100,22 @@ const search = {
   <div class="between"><span class="small muted"><b class="strong" style="color:var(--ink)">312 homes</b> · every one with a live permit and verified owner</span>${ui.seg('view', [{ id: 'list', label: 'List' }, { id: 'map', label: 'Map' }], 'list')}</div>
 </div></section>
 <section class="sec" style="padding:8px 0 56px"><div class="wrap">
+  ${St.withStates(`
   <div class="search-grid">
     <div data-panel="view:list"><div class="results with-map">${listings.map(lcard).join('')}</div></div>
     <div class="mapbox only-desktop"><img src="assets/img/map.svg" alt="Map of Dubai with rent pins"></div>
     <div data-panel="view:map" hidden class="hide-desktop"><div class="mapbox" style="aspect-ratio:3/4"><img src="assets/img/map.svg" alt="Map of Dubai with rent pins"></div></div>
   </div>
+`, {
+    loading: `${St.sk.note('Finding homes…')}${St.sk.props(6)}`,
+    empty: St.empty({
+      icon: 'search-x', title: 'No homes match your search',
+      body: 'No verified home matches every filter right now. A few ways to widen the search:',
+      actions: [btn('Clear filters', { variant: 'primary', icon: 'x', attrs: { 'data-state-to': 'live' } }), btn('Save this search', { icon: 'bell', toast: 'We’ll email you when a match is listed (demo)' })],
+      tips: [['map-pin', 'Try JVC or Al Furjan', '41 more homes within your budget.'], ['sliders-horizontal', 'Drop “Available now”', '18 more homes free from January.']],
+    }),
+    error: St.failure({ title: 'We couldn’t load results', body: 'Your filters are saved. Try again in a moment.', ref: 'ERR-2411-SRCH', actions: [btn('Try again', { variant: 'primary', icon: 'refresh-cw', attrs: { 'data-state-retry': '' } })] }),
+  })}
   <div class="callout brand mt-5">${icon('shield-check', 20)}<div class="grow"><h4>Why every advert shows a permit</h4><p>Dubai requires a Trakheesi permit for each property advert. We check the owner against the title deed and display the permit QR on every listing, so what you see exists and is the owner’s to let.</p><div class="cluster">${rchip('DXB-002', 'Advertising permit')}${rchip('DXB-003', 'Owner check')}</div></div></div>
 </div></section>`,
   }),
