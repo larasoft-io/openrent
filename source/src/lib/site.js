@@ -69,7 +69,7 @@ ${o.body}
     <div><h4>Rent</h4><ul><li><a href="search.html">Find a home</a></li><li><a href="tenants.html">For tenants</a></li><li><a href="legal.html">Your rights</a></li><li><a href="app/tenant/index.html">Tenant dashboard</a></li></ul></div>
     <div><h4>Let</h4><ul><li><a href="landlords.html">For landlords</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="how-it-works.html">How it works</a></li><li><a href="app/landlord/index.html">Landlord dashboard</a></li></ul></div>
     <div><h4>Work</h4><ul><li><a href="contractors.html">For contractors</a></li><li><a href="app/contractor/index.html">Contractor dashboard</a></li><li><a href="app/manager/index.html">Manager dashboard</a></li><li><a href="app/admin/index.html">Admin dashboard</a></li></ul></div>
-    <div><h4>Company</h4><ul><li><a href="about.html">About</a></li><li><a href="help.html">Help centre</a></li><li><a href="app/rulebook.html">Full rulebook</a></li><li><a href="signin.html">Sign in</a></li></ul></div>
+    <div><h4>Company</h4><ul><li><a href="about.html">About</a></li><li><a href="help.html">Help centre</a></li><li><a href="app/rulebook.html">Full rulebook</a></li><li><a href="signin.html">Sign in</a></li><li><a href="signup.html">Create an account</a></li></ul></div>
   </div>
   <div class="foot-legal">
     <span>${company.legal} · ${company.orn} · ${company.licence} · ${company.address}</span>
