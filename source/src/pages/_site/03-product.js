@@ -222,25 +222,5 @@ const help = {
   },
 };
 
-const signin = {
-  slug: 'signin',
-  render: ({ roles, data }) => S.sitePage({
-    title: 'Sign in · openrent.me', active: 'signin',
-    body: `
-<section class="sec"><div class="wrap feature" style="align-items:start">
-  <div class="card pad stack" style="max-width:440px;width:100%;margin:0 auto">
-    <div><h1 class="d2">Welcome back to <span class="me">me</span>.</h1><p class="muted mt-2">Sign in or create an account.</p></div>
-    ${btn('Continue with UAE Pass', { href: 'app/index.html', variant: 'dark', size: 'lg', block: true, icon: 'fingerprint' })}
-    <div class="hr-label">or</div>
-    ${field({ label: 'Email or mobile', type: 'email', placeholder: 'you@example.com' })}
-    ${btn('Send me a code', { href: 'app/index.html', variant: 'primary', size: 'lg', block: true })}
-    <p class="small muted">Landlords and contractors verify with UAE Pass before listing or accepting jobs. By continuing you agree to the terms and privacy notice.</p>
-  </div>
-  <div class="stack"><span class="eyebrow">Demo shortcut</span><h2 class="d3">Jump straight into a dashboard</h2>
-    <div class="role-list">${['applicant', 'tenant', 'landlord', 'contractor', 'manager', 'admin', 'rep', 'field', 'compliance'].filter(id => roles[id]).map(id => `<a href="app/${id}/index.html">${avatar(data.people[id].name, { size: 'sm' })}<span class="grow"><b class="strong" style="display:block;font-size:14px;line-height:1.2">${roles[id].label}</b><span class="small muted">${data.people[id].name} · ${data.people[id].sub}</span></span>${icon('chevron-right', 18, 'faint')}</a>`).join('')}</div>
-  </div>
-</div></section>`,
-  }),
-};
-
-module.exports = [legal, how, search, listing, about, help, signin];
+// Sign-in now lives with the sign-up flow in 04-auth.js
+module.exports = [legal, how, search, listing, about, help];
