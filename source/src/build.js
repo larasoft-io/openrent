@@ -11,6 +11,7 @@ const shell = require('./lib/shell');
 const art = require('./lib/art');
 const ui = require('./lib/ui');
 const data = require('./lib/data');
+const states = require('./lib/states');
 
 const tidy = html => html.replace(/<a\b([^>]*)href="#"([^>]*)>/g, (m, a, b) => /data-(toast|sheet|close|back)/.test(m) ? m : `<a${a}href="#"${b} data-toast="Not wired up in this mock-up">`);
 const write = (rel, content) => { if (rel.endsWith('.html')) content = tidy(content); const f = path.join(dist, rel); fs.mkdirSync(path.dirname(f), { recursive: true }); fs.writeFileSync(f, content); };
@@ -49,6 +50,14 @@ function assets() {
   if (fs.existsSync(shots)) fs.readdirSync(shots).forEach(f => copy(path.join(shots, f), 'assets/shots/' + f));
 }
 
+/* ---- empty / error / loading states, kept per role in src/states/<role>.js as { slug: ctx => ({ loading, empty, error, … }) } ---- */
+function pageStates(id, slug, ctx) {
+  const f = path.join(root, 'src/states', id + '.js');
+  if (!fs.existsSync(f)) return null;
+  const def = load(f)[slug];
+  return def ? def(ctx) : null;
+}
+
 /* ---- load roles & pages ---- */
 function load(file) { delete require.cache[require.resolve(file)]; return require(file); }
 function build() {
@@ -66,6 +75,7 @@ function build() {
         try {
           const ctx = { role: roles[id], roles, data, ui };
           const p = Object.assign({}, page, { body: typeof page.body === 'function' ? page.body(ctx) : page.body, sheets: typeof page.sheets === 'function' ? page.sheets(ctx) : page.sheets });
+          const st = pageStates(id, page.slug, ctx); if (st) p.body = states.withStates(p.body, st);
           write(`app/${id}/${page.slug}.html`, shell.appPage(roles[id], p, roles)); n++;
         } catch (e) { console.log(`FAILED ${id}/${page.slug}: ${e.message}`); }
       }

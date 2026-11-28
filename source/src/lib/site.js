@@ -82,6 +82,7 @@ ${o.buybar || ''}
 <div class="toast" id="toast" role="status" style="bottom:calc(24px + var(--sab));left:50%">${icon('circle-check', 18)}<span></span></div>
 <script src="assets/js/app.js"></script>
 <script src="assets/js/site.js"></script>
+<script src="assets/js/states.js"></script>
 </body></html>`;
 }
 

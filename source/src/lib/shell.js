@@ -84,6 +84,7 @@ ${page.body}
 ${moreSheet}${rolesSheet}${page.sheets || ''}
 <div class="toast" id="toast" role="status">${icon('circle-check', 18)}<span></span></div>
 <script src="${base}assets/js/app.js"></script>
+<script src="${base}assets/js/states.js"></script>
 </body></html>`;
 }
 
@@ -104,6 +105,7 @@ ${o.body}
 ${o.sheets || ''}
 <div class="toast" id="toast" role="status">${icon('circle-check', 18)}<span></span></div>
 <script src="${base}assets/js/app.js"></script>
+<script src="${base}assets/js/states.js"></script>
 </body></html>`;
 }
 
