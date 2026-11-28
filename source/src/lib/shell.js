@@ -6,11 +6,11 @@ const { people } = require('./data');
 const ROLE_ORDER = ['applicant', 'tenant', 'landlord', 'contractor', 'manager', 'admin', 'rep', 'field', 'compliance'];
 const ROLE_COLORS = { applicant: '#C2410C', tenant: '#F0653A', landlord: '#0B6B5D', contractor: '#B98A34', manager: '#27619E', admin: '#5B4BB7', rep: '#0E7490', field: '#A2466C', compliance: '#3F5B4A' };
 
-function head(title, base, extraCss = '') {
+function head(title, base, extraCss = '', rootBase = false) {
   return `<!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
+<meta charset="utf-8">${rootBase ? `\n<script>if (/^https?:$/.test(location.protocol)) document.write('<base href="/">');</script>` : ''}
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#F7F3EC">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -91,7 +91,7 @@ ${moreSheet}${rolesSheet}${page.sheets || ''}
 /** Stand-alone app page (no role navigation) — used by the hub and the shared rulebook */
 function plainPage(o) {
   const base = o.base || '../';
-  return `${head(o.title + ' · openrent.me', base)}
+  return `${head(o.title + ' · openrent.me', base, '', o.rootBase)}
 <body class="app-plain ${o.cls || ''}">
 <header class="topbar" id="topbar" style="padding-left:calc(12px + var(--sal))">
   ${o.back ? `<a class="icon-btn" href="${o.back}" aria-label="Back"${o.historyBack ? ' data-back' : ''}>${icon('chevron-left', 22)}</a>` : ''}

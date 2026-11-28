@@ -1,9 +1,12 @@
 # openrent.me — clickable mock-up
 
 A mobile-first HTML/CSS mock-up of a start-to-finish renting platform for Dubai.
-Everything is static: open `index.html` in a browser, or serve the folder with any static server.
+Everything is static: open `public/index.html` in a browser, or serve the `public/` folder with any static server.
+To put it on a domain with Laravel Forge, see [DEPLOY.md](DEPLOY.md).
 
 ## Where to start
+
+All paths below are inside `public/`.
 
 | Open this | What it is |
 |---|---|
@@ -27,12 +30,13 @@ The demo date is Tuesday 24 November 2026.
 
 ## How it is built
 
+- `public/` holds the built site and is the web root in production. Don't edit it by hand; it is regenerated from `source/`.
 - `assets/css/app.css` — the design system (tokens, components, app shell). `assets/css/site.css` — marketing site.
 - `assets/js/states.js` — the preview switch for page states (add `?state=empty|loading|error|offline|partial` to a page URL) and the live offline banner (`?net=offline` previews it).
 - `assets/js/app.js` — about 90 lines of dependency-free JavaScript for sheets, tabs, chips and toasts.
 - Fonts (Bricolage Grotesque, Figtree, IBM Plex Sans Arabic — all SIL Open Font Licence) and icons (Lucide, ISC) are bundled; nothing loads from the network.
 - Property images are original procedural SVG illustrations.
-- `source/` holds the small Node generator used to produce the pages (run `npm install` once inside `source/`, then `node src/build.js --check`),
+- `source/` holds the small Node generator used to produce the pages (run `npm ci` once inside `source/`, then `npm run build` to build into `source/dist/` and check links, or `npm run publish-site` to also replace `public/`),
   the page sources per role, their empty/error/loading states (`src/states/<role>.js`, helpers in `src/lib/states.js`), the shared mock data (`src/lib/data.js`) and the screenshot script for the marketing site (`node src/shots.js`).
 
 ## Legal content

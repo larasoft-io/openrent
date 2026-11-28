@@ -1,5 +1,6 @@
 #!/usr/bin/env node
-// Static generator for the openrent.me mock-up.  Usage: node src/build.js [--only <role>] [--check]
+// Static generator for the openrent.me mock-up.  Usage: node src/build.js [--only <role>] [--check] [--publish]
+// --publish replaces ../public (the web root served in production) with dist/ once the build and link check pass.
 const fs = require('fs');
 const path = require('path');
 const root = path.join(__dirname, '..');
@@ -111,4 +112,14 @@ function check() {
 }
 
 build();
-if (args.includes('--check')) check();
+if (args.includes('--check') || args.includes('--publish')) check();
+if (args.includes('--publish')) {
+  if (only) { console.log('--publish needs a full build; drop --only'); process.exitCode = 1; }
+  else if (process.exitCode) console.log('not published: fix the broken links first');
+  else {
+    const pub = path.join(root, '..', 'public');
+    fs.rmSync(pub, { recursive: true, force: true });
+    fs.cpSync(dist, pub, { recursive: true });
+    console.log('published dist/ → public/');
+  }
+}
